@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="OpenGL" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/OpenGL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Winline" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option='-include &quot;precomp.h&quot;' />
+					<Add option="-D_DEBUG_" />
+					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
+					<Add directory="src/" />
+				</Compiler>
+				<Linker>
+					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/lib-mingw-w64" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/OpenGL" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option='-include &quot;precomp.h&quot;' />
+					<Add option="-D_RELEASE_" />
+					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
+					<Add directory="src/" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp" />
+		<Unit filename="src/debug/assert.h" />
+		<Unit filename="src/debug/debugbreak.h" />
+		<Unit filename="src/debug/testcase.cpp" />
+		<Unit filename="src/debug/testcase.h" />
+		<Unit filename="src/engine.h" />
+		<Unit filename="src/math/mathutil.cpp" />
+		<Unit filename="src/math/mathutil.h" />
+		<Unit filename="src/math/matrix4f.cpp" />
+		<Unit filename="src/math/matrix4f.h" />
+		<Unit filename="src/math/vector3.h" />
+		<Unit filename="src/math/vector4.h" />
+		<Unit filename="src/precomp.h">
+			<Option compile="1" />
+			<Option weight="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

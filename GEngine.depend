@@ -1,0 +1,104 @@
+# depslib dependency file v1.0
+1476638013 source:d:\soft\.prog\projets\opengl\main.cpp
+	"debug/testcase.h"
+
+1471521160 d:\soft\.prog\projets\opengl\libs\glfw\include\glfw\glfw3.h
+	<stddef.h>
+	<stdint.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES2/gl2ext.h>
+	<vulkan/vulkan.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
+
+1476024964 source:d:\soft\.prog\projets\opengl\src\math\vector3.cpp
+	"math/vector3.h"
+
+1476024801 d:\soft\.prog\projets\opengl\src\math\vector3.h
+	<stdlib.h>
+	<iostream>
+
+1476639144 d:\soft\.prog\projets\opengl\src\\math\vector3.h
+	"math/mathutil.h"
+
+1476615673 d:\soft\.prog\projets\opengl\src\\math\mathutil.h
+
+1476535315 d:\soft\.prog\projets\opengl\src\\generic.h
+	<string>
+
+1476535315 source:d:\soft\.prog\projets\opengl\src\generic.h
+	<string>
+
+1476636738 source:d:\soft\.prog\projets\opengl\src\precomp.h
+	<string>
+	<iostream>
+	<array>
+	"engine.h"
+
+1476639621 d:\soft\.prog\projets\opengl\src\\math\vector4.h
+
+1476542148 d:\soft\.prog\projets\opengl\src\\assert.h
+	<iostream>
+	<stdlib.h>
+
+1476616684 d:\soft\.prog\projets\opengl\src\debug\assert.h
+	<iostream>
+	<stdlib.h>
+	"debugbreak.h"
+
+1476564452 d:\soft\.prog\projets\opengl\src\debug\debugbreak.h
+	<signal.h>
+
+1476621979 d:\soft\.prog\projets\opengl\src\\debug\testcase.h
+
+1476639653 source:d:\soft\.prog\projets\opengl\src\debug\testcase.cpp
+	"debug/testcase.h"
+	"math/vector3.h"
+	"math/vector4.h"
+	"math/matrix4f.h"
+	"math/mathutil.h"
+	"debug/assert.h"
+
+1476616684 d:\soft\.prog\projets\opengl\src\\debug\assert.h
+	<iostream>
+	<stdlib.h>
+	"debugbreak.h"
+
+1476564452 d:\soft\.prog\projets\opengl\src\\debug\debugbreak.h
+	<signal.h>
+
+1476563432 d:\soft\.prog\projets\opengl\src\math\float.h
+	<math.h>
+
+1476615790 source:d:\soft\.prog\projets\opengl\src\math\mathutil.cpp
+	"math/mathutil.h"
+	<math.h>
+	<cmath>
+	<iostream>
+
+1476636751 d:\soft\.prog\projets\opengl\src\engine.h
+	"debug/assert.h"
+
+1476637992 source:d:\soft\.prog\projets\opengl\src\math\matrix4f.cpp
+	"matrix4f.h"
+	"math/mathutil.h"
+	<iomanip>
+
+1476636566 d:\soft\.prog\projets\opengl\src\math\matrix4f.h
+	<array>
+
+1476639793 d:\soft\.prog\projets\opengl\src\\math\matrix4f.h
+	<array>
+
