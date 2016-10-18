@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\debug\testcase.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\mathutil.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math\matrix4f.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="precomp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="debug">
+      <UniqueIdentifier>{ba06131f-305e-4765-8e73-a3130c3029db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{c7abf518-0cb2-470f-b5e1-ed7cf0172009}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\debug\assert.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\debug\debugbreak.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\debug\testcase.h">
+      <Filter>debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\mathutil.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\matrix4f.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\vector3.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\vector4.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine.h" />
+    <ClInclude Include="src\precomp.h" />
+  </ItemGroup>
+</Project>
