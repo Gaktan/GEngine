@@ -11,7 +11,10 @@
     <ClCompile Include="src\math\matrix4f.cpp">
       <Filter>math</Filter>
     </ClCompile>
-    <ClCompile Include="precomp.cpp" />
+    <ClCompile Include="src\debug\log.cpp">
+      <Filter>debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\precomp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="debug">
@@ -37,13 +40,13 @@
     <ClInclude Include="src\math\matrix4f.h">
       <Filter>math</Filter>
     </ClInclude>
-    <ClInclude Include="src\math\vector3.h">
-      <Filter>math</Filter>
-    </ClInclude>
     <ClInclude Include="src\math\vector4.h">
       <Filter>math</Filter>
     </ClInclude>
     <ClInclude Include="src\engine.h" />
+    <ClInclude Include="src\debug\log.h">
+      <Filter>debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\precomp.h" />
   </ItemGroup>
 </Project>

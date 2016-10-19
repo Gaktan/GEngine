@@ -78,5 +78,12 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Visual files
+*.opendb
+*.db
+*.user
+x64/
+ipch/
+
 # GLFW documentation
 libs/glfw/docs/

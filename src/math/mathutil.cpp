@@ -1,8 +1,9 @@
+#include "precomp.h"
+
 #include "math/mathutil.h"
 
 #include <math.h>
 #include <cmath>
-#include <iostream>
 
 GBeginNameSpace()
 
@@ -28,7 +29,7 @@ gFloat sin(gFloat x)
 	x = mod(x + PI, TWO_PI) - PI;
 
 	gFloat xx = x * x;
-	gFloat result = x + (x * xx) * (-0.16612511580269618 + xx * (8.0394356072977748e-3 + xx * -1.49414020045938777495e-4));
+	gFloat result = x + (x * xx) * (-0.16612511580269618f + xx * (8.0394356072977748e-3f + xx * -1.49414020045938777495e-4f));
 
 	return result;
 }
@@ -75,12 +76,12 @@ gFloat clamp(gFloat f, gFloat _min, gFloat _max)
 
 gFloat round(gFloat x)
 {
-	return floor(x + 0.5);
+	return floor(x + 0.5f);
 }
 
 gFloat signum(gFloat x)
 {
-	return (x < 0) ? -1 : 1;
+	return (x < 0.f) ? -1.f : 1.f;
 }
 
 gFloat pow(gFloat x, gFloat y)

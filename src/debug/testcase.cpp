@@ -1,8 +1,9 @@
+#include "precomp.h"
+
 #include "debug/testcase.h"
 
-//#ifdef USE_TEST_CASE
+#ifdef USE_TEST_CASE
 
-#include "math/vector3.h"
 #include "math/vector4.h"
 #include "math/matrix4f.h"
 #include "math/mathutil.h"
@@ -11,81 +12,11 @@
 
 GBeginNameSpace()
 
-#define v3test(condition) testCase(vector3Test, condition)
 #define v4test(condition) testCase(vector4Test, condition)
 #define mathtest(condition) testCase(mathTest, condition)
 #define matrixtest(condition) testCase(matrixTest, condition)
 
 using namespace std;
-
-void startVector3TestCase()
-{
-	createTestCase(vector3Test);
-
-	Vector3f v;
-
-	// Testing constructor and == operator
-	v3test(v == Vector3f(0.f, 0.f, 0.f));
-	v3test(v == Vector3f({0, 0, 0}));
-	float array[] = {0, 0, 0};
-	v3test(v == array);
-
-	v(0) = 1.0f;
-	v[1] += 2.0f;
-	v(2) = 3.0f;
-
-	// Testing attributes modification
-	v3test(v == Vector3f(1.0f, 2.0f, 3.0f));
-
-	v += 2.25f;
-	v -= 1.25f;
-	v *= 2.0f;
-	v /= 1.0f;
-
-
-	// Testing overloaded operators
-	v3test(v == Vector3f(4.0f, 6.0f, 8.0f));
-
-	v.Set(0.f, 24.7386f, 48.f);
-
-	// Testing Length and LengthSquared
-	// Using Equals method to better compare floats
-	v3test(equals(v.LengthSquared(), 54.0f * 54.0f));
-	v3test(equals(v.Length(), 54.0f));
-
-	Vector3f v2 = v;
-
-	// Testing assignment
-	v3test(v == v2);
-
-	v = Vector3f(2, 4, 4);
-	v2 = v.Normalize();
-
-	// Testing normalization and int casting
-	v3test(v2 == Vector3f(0.333f, 0.666f, 0.666f));
-
-	v = (1.f / v2);
-
-	// Testing division
-	v3test(v == Vector3f(3, 1.5, 1.5));
-
-	// Testing dot product
-	v3test(equals(v.Dot(v2), 3.0f));
-
-	v = v2 * v;
-
-	// Testing cross product and different template
-	v3test(v == Vector3<gFloat>(0, 1.5, -1.5f));
-
-	Vector3i i(1, 2, 3);
-
-	v = i;
-
-	//v[8] = 0; v[-1] = 0; // Make sure this crashes
-
-	// Testing Vector casting with different type
-	v3test(v == Vector3f(1, 2, 3));
-}
 
 void startVector4TestCase()
 {
@@ -237,13 +168,14 @@ void startMathTestCase()
 	// Is infinite
 	mathtest(!isInfinite(0));
 	mathtest(!isInfinite(1));
-	mathtest(isInfinite(1 / 0.f));
+	
+	//mathtest(isInfinite(1 / 0.f)); // Doesn't compile on visual
 
 	// Sqrt
 	mathtest(sqrt(0) == 0);
 	mathtest(isInfinite(sqrt(-1)));
 	mathtest(sqrt(9) == 3);
-	mathtest(equals(sqrt(2), 1.41421356, 0.01f));
+	mathtest(equals(sqrt(2), 1.41421356f, 0.01f));
 
 	// Fast inverse sqrt
 	mathtest(equals(fastInvSqrt(9), 1.f / sqrt(9)));
@@ -304,18 +236,39 @@ void startMatrixTestCase()
 		0, 0, 0, 1
 	};
 
+	MAT_ARRAY array1DMUL =
+	{
+		1, 0, 2, 0,
+		0, 3, 0, 4,
+		0, 0, 5, 0,
+		6, 0, 0, 7
+	};
+
 	Matrix4f m;
 	m.m02 = 0.2001f;
+
+	matrixtest(m[0] == array2D[0]);
+	matrixtest(m(1) == array2D[1]);
+	//matrixtest(m.GetLine(2) != array2D[2]); cout << m.GetLine(2) << endl << array2D[2] << endl;
+	matrixtest(m[3] == array2D[3]);
 
 	// Testing equals and identity matrix
 	matrixtest(m.Equals(array2D));
 	matrixtest(!m.Equals(array1D));
 
-	m = m.Mul(array2D);
+	m.Mul(array2D);
 
-	cout << m << endl;
+	m = array1DMUL;
+
+	Vector4f v = m.Mul(Vector4f(2, 5, 1, 8));
+	matrixtest(v == Vector4f(4, 47, 5, 68));
+
+	m.SetIdentity();
+	v = (m * v);
+
+	matrixtest(v == Vector4f(4, 47, 5, 68));
 }
 
 GEndNameSpace()
 
-//#endif // USE_TEST_CASE
+#endif // USE_TEST_CASE

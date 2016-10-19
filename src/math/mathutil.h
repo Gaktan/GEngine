@@ -3,11 +3,11 @@
 
 GBeginNameSpace()
 
-#define PI					3.14159286535
-#define TWO_PI				6.28318530717 // PI * 2
-#define HALF_PI				1.57079643268 // PI / 2
-#define QUARTER_PI			0.78539816339 // PI / 4
-#define THREE_FOURTH_PI		2.35619449019 // PI * 3 / 4
+#define PI					3.14159286535f
+#define TWO_PI				6.28318530717f // PI * 2
+#define HALF_PI				1.57079643268f // PI / 2
+#define QUARTER_PI			0.78539816339f // PI / 4
+#define THREE_FOURTH_PI		2.35619449019f // PI * 3 / 4
 
 // EQUALS_EPSILON is quite big and it might even need to be bigger...
 #define EQUALS_EPSILON 0.005

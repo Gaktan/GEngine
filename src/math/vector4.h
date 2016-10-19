@@ -92,16 +92,16 @@ public:
 		return buffer[index];
 	}
 
-	friend ostream& operator << (ostream& os, const Vector4<T> &v)
+	friend gStringStream& operator << (gStringStream& stream, const Vector4<T> &v)
 	{
 		// write obj to stream
-		os << "[";
+		stream << "[";
 		for (int i = 0; i < 4; i++)
 		{
-			os << v[i];
-			os << (i != 3 ? ", " : "]");
+			stream << v[i];
+			stream << (i != 3 ? ", " : "]");
 		}
-		return os;
+		return stream;
 	}
 
 	// --
