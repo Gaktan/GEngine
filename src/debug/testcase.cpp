@@ -58,12 +58,13 @@ void startVector4TestCase()
 	v4test(v == v2);
 
 	v = Vector4f(2, 4, 4, 0.f);
-	v2 = v.Normalize();
+	v2.Set(v);
+	v2.Normalize();
 
 	// Testing normalization and int casting
 	v4test(v2 == Vector4f(0.333f, 0.666f, 0.666f, 0.f));
 
-	v = (1.f / v2); // This should device w by 0
+	v = (1.f / v2); // This should divide w by 0
 
 	v4test(isInfinite(v(3)));
 

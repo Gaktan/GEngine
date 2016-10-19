@@ -63,54 +63,12 @@ gStringStream& gStringStream::operator << (const ENDL_STRUCT &m)
 	return *this;
 }
 
-//gStringStream& gStringStream::operator << (const gDouble t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
-//gStringStream& gStringStream::operator << (const gUInt t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
-//gStringStream& gStringStream::operator << (const gInt t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
-//gStringStream& gStringStream::operator << (const gChar t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
-//gStringStream& gStringStream::operator << (const gLong t)
-//{
-//	stream << t;
-//	return *this;
-//}
-
 gStringStream& gStringStream::operator << (const gString t)
 {
 	stream << t;
 	return *this;
 }
 
-//gStringStream& gStringStream::operator << (const gIndex t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
-//gStringStream& gStringStream::operator << (const gBool t)
-//{
-//	stream << t;
-//	return *this;
-//}
-//
 gStringStream& gStringStream::operator << (const gFloat t)
 {
 	stream << t;

@@ -4,7 +4,7 @@
 #include <sstream>
 typedef std::ostringstream		__GSTRINGSTREAM;
 
-// for td::setw(int)
+// for std::stew(int)
 #include <iomanip>
 
 gString stringFormat(const gString str, /* args */ ...);

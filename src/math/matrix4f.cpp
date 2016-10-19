@@ -389,4 +389,17 @@ gStringStream& operator << (gStringStream& stream, const Matrix4f &m)
 	return stream;
 }
 
+Matrix4f Matrix4f::operator * (const Matrix4f &mat)
+{
+	Matrix4f ret(*this);
+	ret.Mul(mat);
+	return ret;
+}
+
+Vector4f Matrix4f::operator * (const Vector4f &vec)
+{
+	Matrix4f ret(*this);
+	return ret.Mul(vec);
+}
+
 GEndNameSpace()

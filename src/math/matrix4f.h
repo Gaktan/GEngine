@@ -53,6 +53,9 @@ public:
 	Matrix4f& operator = (const MAT_ARRAY &a);
 	Matrix4f& operator = (const Matrix4f &mat);
 
+	Matrix4f operator * (const Matrix4f &mat);
+	Vector4f operator * (const Vector4f &vec);
+
 	union
 	{
 		MAT_ARRAY_2D m;
@@ -69,18 +72,6 @@ public:
 };
 
 gStringStream& operator << (gStringStream& stream, const Matrix4f &m);
-
-inline const Matrix4f operator * (const Matrix4f &a, const Matrix4f &b)
-{
-	Matrix4f ret(a);
-	ret.Mul(b);
-	return ret;
-}
-
-inline const Vector4f operator * (const Matrix4f &a, const Vector4f &b)
-{
-	return a.Mul(b);
-}
 
 GEndNameSpace()
 
