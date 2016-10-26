@@ -17,8 +17,10 @@
 					<Add option="-g" />
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_DEBUG_" />
+					<Add option="-D_GCC_" />
 					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
 					<Add directory="src/" />
+					<Add directory="src/math" />
 				</Compiler>
 				<Linker>
 					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/lib-mingw-w64" />
@@ -33,8 +35,10 @@
 					<Add option="-O2" />
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_RELEASE_" />
+					<Add option="-D_GCC_" />
 					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
 					<Add directory="src/" />
+					<Add directory="src/math" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -48,15 +52,27 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/debug/assert.h" />
 		<Unit filename="src/debug/debugbreak.h" />
+		<Unit filename="src/debug/log.cpp" />
+		<Unit filename="src/debug/log.h" />
 		<Unit filename="src/debug/testcase.cpp" />
 		<Unit filename="src/debug/testcase.h" />
 		<Unit filename="src/engine.h" />
+		<Unit filename="src/gfx/texture.cpp" />
+		<Unit filename="src/gfx/texture.h" />
+		<Unit filename="src/io/file.cpp">
+			<Option weight="3" />
+		</Unit>
+		<Unit filename="src/io/file.h">
+			<Option weight="3" />
+		</Unit>
+		<Unit filename="src/math/eangle.cpp" />
+		<Unit filename="src/math/eangle.h" />
 		<Unit filename="src/math/mathutil.cpp" />
 		<Unit filename="src/math/mathutil.h" />
 		<Unit filename="src/math/matrix4f.cpp" />
 		<Unit filename="src/math/matrix4f.h" />
-		<Unit filename="src/math/vector3.h" />
 		<Unit filename="src/math/vector4.h" />
+		<Unit filename="src/precomp.cpp" />
 		<Unit filename="src/precomp.h">
 			<Option compile="1" />
 			<Option weight="0" />
