@@ -8,6 +8,8 @@ typedef int						gInt;
 typedef char					gChar;
 typedef long					gLong;
 
+typedef char					gByte;
+
 #include <string>
 typedef std::string				gString;
 
@@ -18,8 +20,10 @@ typedef bool					gBool;
 typedef float					gFloat;
 
 #include <array>
-//typedef std::array			gArray;
 #define gArray					std::array
+
+#include <vector>
+#define gVector					std::vector
 
 // Namespace used for the engine
 #define GBeginNameSpace() namespace gfe {

@@ -105,13 +105,14 @@
 1477500383 source:d:\soft\.prog\projets\gengine\src\precomp.h
 	"engine.h"
 
-1477500383 d:\soft\.prog\projets\gengine\src\engine.h
+1477517833 d:\soft\.prog\projets\gengine\src\engine.h
 	<string>
 	<array>
+	<vector>
 	"debug/log.h"
 	"debug/assert.h"
 
-1477502281 d:\soft\.prog\projets\gengine\src\debug\log.h
+1477519684 d:\soft\.prog\projets\gengine\src\debug\log.h
 	<sstream>
 	<iomanip>
 
@@ -120,25 +121,26 @@
 	"debug/log.h"
 	"debug/debugbreak.h"
 
-1477502281 d:\soft\.prog\projets\gengine\src\\debug\log.h
+1477519684 d:\soft\.prog\projets\gengine\src\\debug\log.h
 	<sstream>
 	<iomanip>
 
 1476564452 d:\soft\.prog\projets\gengine\src\\debug\debugbreak.h
 	<signal.h>
 
-1477506054 source:d:\soft\.prog\projets\gengine\main.cpp
+1477517813 source:d:\soft\.prog\projets\gengine\main.cpp
 	"precomp.h"
 	"debug/testcase.h"
 	"debug/log.h"
-	"math/EAngle.h"
+	"io/file.h"
 
 1477500383 d:\soft\.prog\projets\gengine\src\\precomp.h
 	"engine.h"
 
-1477500383 d:\soft\.prog\projets\gengine\src\\engine.h
+1477517833 d:\soft\.prog\projets\gengine\src\\engine.h
 	<string>
 	<array>
+	<vector>
 	"debug/log.h"
 	"debug/assert.h"
 
@@ -149,7 +151,7 @@
 
 1477504357 d:\soft\.prog\projets\gengine\src\\debug\testcase.h
 
-1477502153 source:d:\soft\.prog\projets\gengine\src\debug\log.cpp
+1477519913 source:d:\soft\.prog\projets\gengine\src\debug\log.cpp
 	"precomp.h"
 	"debug/log.h"
 	<stdio.h>
@@ -163,7 +165,7 @@
 	"math/mathutil.h"
 	"debug/assert.h"
 
-1477506076 d:\soft\.prog\projets\gengine\src\\math\vector4.h
+1477513169 d:\soft\.prog\projets\gengine\src\\math\vector4.h
 
 1477500383 d:\soft\.prog\projets\gengine\src\\math\matrix4f.h
 	"math/vector4.h"
@@ -188,11 +190,25 @@
 1477500383 d:\soft\.prog\projets\gengine\src\precomp.h
 	"engine.h"
 
-1477504297 source:d:\soft\.prog\projets\gengine\src\math\eangle.cpp
+1477511831 source:d:\soft\.prog\projets\gengine\src\math\eangle.cpp
 	"precomp.h"
 	"math/eangle.h"
 	"math/mathutil.h"
 
-1477504152 d:\soft\.prog\projets\gengine\src\\math\eangle.h
+1477519399 d:\soft\.prog\projets\gengine\src\\math\eangle.h
 	"vector4.h"
+
+1477517809 d:\soft\.prog\projets\gengine\src\\io\file.h
+
+1477517615 source:d:\soft\.prog\projets\gengine\src\gfx\texture.cpp
+	"precomp.h"
+	"gfx/texture.h"
+
+1477517607 d:\soft\.prog\projets\gengine\src\\gfx\texture.h
+
+1477519571 source:d:\soft\.prog\projets\gengine\src\io\file.cpp
+	"precomp.h"
+	"io/file.h"
+	<iostream>
+	<fstream>
 

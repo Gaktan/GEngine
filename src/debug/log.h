@@ -42,6 +42,8 @@ public:
 
 	gStringStream& operator << (const gChar *t);
 
+	gStringStream& operator << (const gVector<gByte> &t);
+
 	gStringStream& operator << (std::_Setw t);
 
 private:

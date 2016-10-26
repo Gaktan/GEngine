@@ -3,7 +3,6 @@
 #include "debug/log.h"
 
 #include <stdio.h>
-
 #include <windows.h>
 
 gString stringFormat(const gString str, /* args */ ...)
@@ -91,6 +90,25 @@ gStringStream& gStringStream::operator << (std::_Setw t)
 gStringStream& gStringStream::operator << (const gChar *t)
 {
 	stream << t;
+	return *this;
+}
+
+gStringStream& gStringStream::operator << (const gVector<gByte> &t)
+{
+	gVector<gByte>::const_iterator begin = t.begin();
+	gVector<gByte>::const_iterator end = t.end();
+
+	stream << "vector [";
+	for (; begin != end; begin++)
+	{
+		stream << (*begin);
+		if (begin != end - 1)
+		{
+			stream << ", ";
+		}
+	}
+	stream << "]";
+
 	return *this;
 }
 
