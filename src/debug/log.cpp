@@ -3,6 +3,7 @@
 #include "debug/log.h"
 
 #include <stdio.h>
+
 #include <windows.h>
 
 gString stringFormat(const gString str, /* args */ ...)
@@ -28,8 +29,14 @@ void logOutput(const gString str, /* args */ ...)
 	va_start(args, str);
 	vsnprintf(buffer, 253, str.c_str(), args);
 	va_end(args);
-	
+
+#ifndef _GCC_
+	// If using visual, use OutputDebugString to print to the output window
 	OutputDebugString(buffer);
+#else // _GCC_
+	// Else print as usual
+	printf(buffer);
+#endif // _GCC_
 }
 
 GBeginNameSpace()
@@ -75,7 +82,7 @@ gStringStream& gStringStream::operator << (const gFloat t)
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (const std::_Smanip<std::streamsize> t)
+gStringStream& gStringStream::operator << (std::_Setw t)
 {
 	stream << t;
 	return *this;

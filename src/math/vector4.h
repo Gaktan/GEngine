@@ -149,7 +149,7 @@ public:
 
 	inline gBool InRange(const T v) const
 	{
-		const R d = v * v;
+		const T d = v * v;
 		return (LengthSquared() < d);
 	}
 
@@ -349,7 +349,7 @@ protected:
 class Vector4f : public Vector4<gFloat>
 {
 public:
-	
+
 	Vector4f()
 	{
 		Set(0.f, 0.f, 0.f, 0.f);

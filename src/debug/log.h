@@ -16,7 +16,6 @@ struct ENDL_STRUCT
 {
 };
 
-
 class gStringStream
 {
 public:
@@ -43,9 +42,9 @@ public:
 
 	gStringStream& operator << (const gChar *t);
 
-	gStringStream& operator << (const std::_Smanip<std::streamsize> t);
+	gStringStream& operator << (std::_Setw t);
 
-private: 
+private:
 	__GSTRINGSTREAM stream;
 
 };
