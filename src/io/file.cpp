@@ -11,7 +11,7 @@ gUInt file_size(const gString &path)
 {
 	std::ifstream file(path.c_str(), std::ios::binary);
 
-	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path));
+	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path.c_str()));
 
 	std::streampos begin, end;
 
@@ -27,7 +27,7 @@ void file_read(const gString& path, const gUInt size, gVector<gByte> &array)
 {
 	std::ifstream  file(path.c_str(), std::ios::binary);
 
-	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path));
+	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path.c_str()));
 
 	file.seekg(0, std::ios::beg);
 	file.read(&array[0], size);
