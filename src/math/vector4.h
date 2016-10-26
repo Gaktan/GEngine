@@ -350,17 +350,12 @@ class Vector4f : public Vector4<gFloat>
 {
 public:
 
-	Vector4f()
-	{
-		Set(0.f, 0.f, 0.f, 0.f);
-	}
-
 	Vector4f(const Vector4f &v)
 	{
 		Set(v);
 	}
 
-	Vector4f(const gFloat x, const gFloat y, const gFloat z, const gFloat w)
+	Vector4f(const gFloat x = 0.f, const gFloat y = 0.f, const gFloat z = 0.f, const gFloat w = 0.f)
 	{
 		Set(x, y, z, w);
 	}

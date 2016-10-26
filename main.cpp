@@ -3,8 +3,6 @@
 #include "debug/testcase.h"
 #include "debug/log.h"
 
-#include <iostream>
-
 using namespace gfe;
 
 int main()

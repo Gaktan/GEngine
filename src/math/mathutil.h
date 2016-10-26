@@ -32,6 +32,8 @@ gFloat lerp(gFloat start, gFloat end, gFloat percent);
 gFloat slerp(gFloat start, gFloat end, gFloat percent);
 gBool equals(gFloat a, gFloat b, gFloat epsilon = EQUALS_EPSILON);
 gBool isInfinite(gFloat a);
+gFloat toRadians(gFloat x);
+gFloat toDegrees(gFloat x);
 
 GEndNameSpace()
 

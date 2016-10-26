@@ -143,5 +143,14 @@ gBool isInfinite(gFloat a)
 	return !std::isfinite(a);
 }
 
+gFloat toRadians(gFloat x)
+{
+	return x * 0.01745329251f; // PI / 180
+}
+
+gFloat toDegrees(gFloat x)
+{
+	return x * 57.2957795131f; // 180 / PI
+}
 
 GEndNameSpace()
