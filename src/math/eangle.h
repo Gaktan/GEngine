@@ -20,13 +20,13 @@ public:
 	Vector4f ToVector();
 
 	inline gFloat GetPitch() const { return pitch; }
-	inline gFloat SetPitch(const gFloat value) { pitch = value; }
+	inline void SetPitch(const gFloat value) { pitch = value; }
 
 	inline gFloat GetYaw() const { return yaw; }
-	inline gFloat SetYaw(const gFloat value) { yaw = value; }
+	inline void SetYaw(const gFloat value) { yaw = value; }
 
 	inline gFloat GetRoll() const { return roll; }
-	inline gFloat SetRoll(const gFloat value) { roll = value; }
+	inline void SetRoll(const gFloat value) { roll = value; }
 
 protected:
 	gFloat pitch;
