@@ -85,5 +85,9 @@ $RECYCLE.BIN/
 x64/
 ipch/
 
+#CodeBlocks files
+*.depend
+*.layout
+
 # GLFW documentation
 libs/glfw/docs/
