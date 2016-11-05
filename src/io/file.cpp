@@ -30,7 +30,7 @@ void file_read(const gString& path, const gUInt size, gVector<gByte> &array)
 	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path.c_str()));
 
 	file.seekg(0, std::ios::beg);
-	file.read(&array[0], size);
+	file.read((char*)&array[0], size);
 
 	file.close();
 }

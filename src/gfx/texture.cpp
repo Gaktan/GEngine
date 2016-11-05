@@ -4,7 +4,7 @@
 
 GBeginNameSpace()
 
-Texture::Texture()
+TextureBase::TextureBase()
 {
 	m_Id = -1;
 	m_Width = 0;
@@ -15,7 +15,7 @@ Texture::Texture()
 	m_Format = R_32_F;
 }
 
-Texture::Texture(const Texture& other)
+TextureBase::TextureBase(const TextureBase& other)
 {
 	m_Id = other.m_Id;
 	m_Width = other.m_Width;
@@ -27,14 +27,8 @@ Texture::Texture(const Texture& other)
 	m_Format = other.m_Format;
 }
 
-Texture::~Texture()
+TextureBase::~TextureBase()
 {
-
-}
-
-void Texture::LoadTexture(const gString &path)
-{
-
 }
 
 GEndNameSpace()

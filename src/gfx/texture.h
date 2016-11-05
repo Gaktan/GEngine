@@ -28,14 +28,14 @@ enum GFX_TEXTURE_FORMAT
 	RGB_32_F,
 };
 
-class Texture
+class TextureBase
 {
 public:
-	Texture();
-	Texture(const Texture &other);
-	virtual ~Texture();
+	TextureBase();
+	TextureBase(const TextureBase &other);
+	virtual ~TextureBase();
 
-	void LoadTexture(const gString &path);
+	virtual void LoadFile(const gString &path) = 0;
 
 	// Getters & Setters
 
@@ -63,7 +63,7 @@ public:
 	inline void SetWrap(GFX_TEXTURE_FORMAT format) { m_Format = format; }
 
 protected:
-	gInt m_Id;
+	gUInt m_Id;
 	gInt m_Width;
 	gInt m_Height;
 	gBool m_HasAlpha;
@@ -81,6 +81,14 @@ protected:
 #endif
 };
 
+GEndNameSpace()
+
+// Depending if we use openGL or something else
+//#ifdef _OGL_
+#include "opengl/ogltexture.h"
+
+
+//#endif // _OGL_
+
 #endif // __GFX__TEXTURE__H__
 
-GEndNameSpace()

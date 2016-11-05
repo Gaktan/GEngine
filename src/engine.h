@@ -8,7 +8,7 @@ typedef int						gInt;
 typedef char					gChar;
 typedef long					gLong;
 
-typedef char					gByte;
+typedef unsigned char			gByte;
 
 #include <string>
 typedef std::string				gString;

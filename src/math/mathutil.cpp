@@ -102,11 +102,11 @@ gFloat fastInvSqrt(gFloat number)
 
 	x2 = number * 0.5f;
 	y  = number;
-	i  = *(gLong *) &y;                       // evil floating point bit level hacking
-	i  = 0x5f3759df - (i >> 1);               // what the fuck?
+	i  = *(gLong *) &y;						// evil floating point bit level hacking
+	i  = 0x5f3759df - (i >> 1);				// what the fuck?
 	y  = *(float *) &i;
-	y  = y * (threehalfs - (x2 * y * y));   // 1st iteration
-	//y  = y * (hreehalfs - (x2 * y * y));   // 2nd iteration, this can be removed
+	y  = y * (threehalfs - (x2 * y * y));	// 1st iteration
+	//y  = y * (hreehalfs - (x2 * y * y));	// 2nd iteration, this can be removed
 
 	return y;
 }
