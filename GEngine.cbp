@@ -18,12 +18,15 @@
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_DEBUG_" />
 					<Add option="-D_GCC_" />
-					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
 					<Add directory="src/" />
 					<Add directory="src/math" />
+					<Add directory="libs/glfw/include" />
+					<Add directory="libs/soil/src" />
 				</Compiler>
 				<Linker>
-					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/lib-mingw-w64" />
+					<Add library="libs/soil/lib/libSOIL.a" />
+					<Add library="libopengl32.a" />
+					<Add directory="$(MinGWdir)/lib/" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -36,12 +39,16 @@
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_RELEASE_" />
 					<Add option="-D_GCC_" />
-					<Add directory="D:/soft/.Prog/Projets/OpenGL/libs/glfw/include" />
 					<Add directory="src/" />
 					<Add directory="src/math" />
+					<Add directory="libs/glfw/include" />
+					<Add directory="libs/soil/src" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add library="libs/soil/lib/libSOIL.a" />
+					<Add library="libopengl32.a" />
+					<Add directory="$(MinGWdir)/lib/" />
 				</Linker>
 			</Target>
 		</Build>
@@ -72,6 +79,8 @@
 		<Unit filename="src/math/matrix4f.cpp" />
 		<Unit filename="src/math/matrix4f.h" />
 		<Unit filename="src/math/vector4.h" />
+		<Unit filename="src/opengl/ogltexture.cpp" />
+		<Unit filename="src/opengl/ogltexture.h" />
 		<Unit filename="src/precomp.cpp" />
 		<Unit filename="src/precomp.h">
 			<Option compile="1" />
