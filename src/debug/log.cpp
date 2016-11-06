@@ -62,6 +62,11 @@ gString gStringStream::str()
 	return stream.str();
 }
 
+__GSTRINGSTREAM& gStringStream::getStream()
+{
+	return stream;
+}
+
 gStringStream& gStringStream::operator << (const ENDL_STRUCT &m)
 {
 	stream << '\n';

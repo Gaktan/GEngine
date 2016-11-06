@@ -21,12 +21,12 @@ class gStringStream
 public:
 
 	gStringStream();
-
 	virtual ~gStringStream();
 
 	gStringStream& flush();
-
 	gString str();
+
+	__GSTRINGSTREAM& getStream();
 
 	gStringStream& operator << (const ENDL_STRUCT &m);
 
@@ -39,11 +39,8 @@ public:
 	//gStringStream& operator << (const gIndex t);
 	//gStringStream& operator << (const gBool t);
 	gStringStream& operator << (const gFloat t);
-
 	gStringStream& operator << (const gChar *t);
-
 	gStringStream& operator << (const gVector<gByte> &t);
-
 	gStringStream& operator << (std::_Setw t);
 
 private:

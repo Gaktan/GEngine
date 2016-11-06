@@ -1,7 +1,8 @@
 #include "precomp.h"
 
 #include "debug/testcase.h"
-#include "debug/log.h"
+
+#include "engine/mainloop.h"
 
 using namespace gfe;
 
@@ -12,6 +13,8 @@ int main()
 	startMathTestCase();
 	startMatrixTestCase();
 #endif
+
+	MainLoop::GetInstance().StartLoop();
 
 	return 0;
 }

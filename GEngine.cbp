@@ -64,6 +64,10 @@
 		<Unit filename="src/debug/testcase.cpp" />
 		<Unit filename="src/debug/testcase.h" />
 		<Unit filename="src/engine.h" />
+		<Unit filename="src/engine/clock.h" />
+		<Unit filename="src/engine/mainloop.cpp" />
+		<Unit filename="src/engine/mainloop.h" />
+		<Unit filename="src/engine/singleton.h" />
 		<Unit filename="src/gfx/texture.cpp" />
 		<Unit filename="src/gfx/texture.h" />
 		<Unit filename="src/io/file.cpp">
