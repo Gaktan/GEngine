@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <windows.h>
 
-gString stringFormat(const gString str, /* args */ ...)
+string stringFormat(const string str, /* args */ ...)
 {
-	gChar buffer[256];
-	gString ret;
+	char buffer[256];
+	string ret;
 
 	va_list args;
 	va_start(args, str);
@@ -20,9 +20,9 @@ gString stringFormat(const gString str, /* args */ ...)
 	return ret;
 }
 
-void logOutput(const gString str, /* args */ ...)
+void logOutput(const string str, /* args */ ...)
 {
-	gChar buffer[256];
+	char buffer[256];
 
 	va_list args;
 	va_start(args, str);
@@ -40,15 +40,15 @@ void logOutput(const gString str, /* args */ ...)
 
 GBeginNameSpace()
 
-gStringStream::gStringStream()
+stringStream::stringStream()
 {
 }
 
-gStringStream::~gStringStream()
+stringStream::~stringStream()
 {
 }
 
-gStringStream& gStringStream::flush()
+stringStream& stringStream::flush()
 {
 	logOutput(str());
 	stream.flush();
@@ -57,51 +57,51 @@ gStringStream& gStringStream::flush()
 	return *this;
 }
 
-gString gStringStream::str()
+string stringStream::str()
 {
 	return stream.str();
 }
 
-__GSTRINGSTREAM& gStringStream::getStream()
+__GSTRINGSTREAM& stringStream::getStream()
 {
 	return stream;
 }
 
-gStringStream& gStringStream::operator << (const ENDL_STRUCT &m)
+stringStream& stringStream::operator << (const ENDL_STRUCT &m)
 {
 	stream << '\n';
 	flush();
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (const gString t)
+stringStream& stringStream::operator << (const string t)
 {
 	stream << t;
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (const gFloat t)
+stringStream& stringStream::operator << (const float t)
 {
 	stream << t;
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (std::_Setw t)
+stringStream& stringStream::operator << (std::_Setw t)
 {
 	stream << t;
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (const gChar *t)
+stringStream& stringStream::operator << (const char *t)
 {
 	stream << t;
 	return *this;
 }
 
-gStringStream& gStringStream::operator << (const gVector<gByte> &t)
+stringStream& stringStream::operator << (const vector<byte> &t)
 {
-	gVector<gByte>::const_iterator begin = t.begin();
-	gVector<gByte>::const_iterator end = t.end();
+	vector<byte>::const_iterator begin = t.begin();
+	vector<byte>::const_iterator end = t.end();
 
 	stream << "vector [";
 	for (; begin != end; begin++)

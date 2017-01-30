@@ -1,29 +1,34 @@
 #ifndef __ENGINE__H__
 #define __ENGINE__H__
 
-typedef double					gDouble;
+#ifdef _WIN32_
+#include <stdint.h>
+typedef int8_t					i8;
+typedef int16_t					i16;
+typedef int32_t					i32;
+typedef int64_t					i64;
 
-typedef long unsigned int		gUInt;
-typedef int						gInt;
-typedef char					gChar;
-typedef long					gLong;
+typedef uint8_t					ui8;
+typedef uint16_t				ui16;
+typedef uint32_t				ui32;
+typedef uint64_t				ui64;
 
-typedef unsigned char			gByte;
+typedef intptr_t				iptr;
+
+typedef ui8						byte;
 
 #include <string>
-typedef std::string				gString;
-
-typedef size_t					gIndex;
-
-typedef bool					gBool;
-
-typedef float					gFloat;
+typedef std::string				string;
 
 #include <array>
-#define gArray					std::array
+#define array					std::array
 
 #include <vector>
-#define gVector					std::vector
+#define vector					 std::vector
+
+#else
+#error Not implemented yet defined
+#endif
 
 // Namespace used for the engine
 #define GBeginNameSpace() namespace gfe {

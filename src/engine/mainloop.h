@@ -9,17 +9,17 @@ class MainLoop : public Singleton<MainLoop>
 {
 public:
 	void StartLoop();
-	gBool IsRunning() { return m_IsRunning; };
+	bool IsRunning() { return m_IsRunning; };
 	void Stop() { m_IsRunning = false; };
-	gFloat GetDeltaTime() { return m_DeltaTime; };
+	float GetDeltaTime() { return m_DeltaTime; };
 
 protected:
 	void BeforeLoop();
 	void AfterLoop();
 
 protected:
-	gBool m_IsRunning;
-	gFloat m_DeltaTime;
+	bool m_IsRunning;
+	float m_DeltaTime;
 };
 
 GEndNameSpace()

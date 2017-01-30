@@ -35,22 +35,22 @@ public:
 	TextureBase(const TextureBase &other);
 	virtual ~TextureBase();
 
-	virtual void LoadFile(const gString &path) = 0;
+	virtual void LoadFile(const string &path) = 0;
 
 	// Getters & Setters
 
 
-	inline gInt GetId() const { return m_Id; }
-	inline void SetId(gInt id) { m_Id = id; }
+	inline ui32 GetId() const { return m_Id; }
+	inline void SetId(ui32 id) { m_Id = id; }
 
-	inline gInt GetWidth() const { return m_Width; }
-	inline void SetWidth(gInt width) { m_Width = width; }
+	inline ui16 GetWidth() const { return m_Width; }
+	inline void SetWidth(ui16 width) { m_Width = width; }
 
-	inline gInt GetHeight() const { return m_Height; }
-	inline void SetHeight(gInt height) { m_Height = height; }
+	inline ui16 GetHeight() const { return m_Height; }
+	inline void SetHeight(ui16 height) { m_Height = height; }
 
-	inline gBool HasAlpha() const { return m_HasAlpha; }
-	inline void SetHasAlpha(gBool hasAlpha) { m_HasAlpha = hasAlpha; }
+	inline bool HasAlpha() const { return m_HasAlpha; }
+	inline void SetHasAlpha(bool hasAlpha) { m_HasAlpha = hasAlpha; }
 
 
 	inline GFX_TEXTURE_FILTER GetFilter() const { return m_Filter; }
@@ -63,10 +63,10 @@ public:
 	inline void SetWrap(GFX_TEXTURE_FORMAT format) { m_Format = format; }
 
 protected:
-	gUInt m_Id;
-	gInt m_Width;
-	gInt m_Height;
-	gBool m_HasAlpha;
+	ui32 m_Id;
+	ui16 m_Width;
+	ui16 m_Height;
+	bool m_HasAlpha;
 
 	GFX_TEXTURE_FILTER m_Filter;
 	GFX_TEXTURE_WRAP m_Wrap;
@@ -74,10 +74,10 @@ protected:
 
 #ifdef _DEBUG_
 public:
-	inline gString GetName() const { return m_Name; }
-	inline void SetName(gString name) { m_Name = name; }
+	inline string GetName() const { return m_Name; }
+	inline void SetName(string name) { m_Name = name; }
 protected:
-	gString m_Name;
+	string m_Name;
 #endif
 };
 

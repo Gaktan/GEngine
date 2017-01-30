@@ -5,37 +5,74 @@
 #ifdef USE_TEST_CASE
 
 #include "math/vector4.h"
-#include "math/matrix4f.h"
+#include "math/mat4.h"
 #include "math/mathutil.h"
 
 #include "debug/assert.h"
 
 GBeginNameSpace()
 
+#define primtest(condition) testCase(primitiveTest, condition)
 #define v4test(condition) testCase(vector4Test, condition)
 #define mathtest(condition) testCase(mathTest, condition)
 #define matrixtest(condition) testCase(matrixTest, condition)
 
 using namespace std;
 
+void startPrimitiveTestCase()
+{
+	createTestCase(primitiveTest);
+
+	// Test that integer primitive types are actually 8, 16, 32, or 64 bits
+	primtest(sizeof(i8) == 8 / 8);
+	primtest(sizeof(i16) == 16 / 8);
+	primtest(sizeof(i32) == 32 / 8);
+	primtest(sizeof(i64) == 64 / 8);
+
+	primtest(sizeof(ui8) == 8 / 8);
+	primtest(sizeof(ui16) == 16 / 8);
+	primtest(sizeof(ui32) == 32 / 8);
+	primtest(sizeof(ui64) == 64 / 8);
+
+	primtest(((i8) 0 - 1) < 0);
+	primtest(((i16) 0 - 1) < 0);
+	primtest(((i32) 0 - 1) < 0);
+	primtest(((i64) 0 - 1) < 0);
+
+	// These two are not guaranteed apparently
+	//primtest(((ui8) 0 - 1) > 0);
+	//primtest(((ui16) 0 - 1) > 0);
+	primtest(((ui32) 0 - 1) > 0);
+	primtest(((ui64) 0 - 1) > 0);
+
+	// Test that pointers are 32 or 64 bits according to the platform
+#ifdef _WIN32_
+	primtest(sizeof(iptr) == 32 / 8);
+#elif defined (_WIN64_)
+	primtest(sizeof(iptr) == 64 / 8)
+#else
+	#error Not implemented yet
+#endif
+}
+
 void startVector4TestCase()
 {
 	createTestCase(vector4Test);
 
-	Vector4f v;
+	Vec4f v;
 
 	// Testing constructor and == operator
-	v4test(v == Vector4f(0.f, 0.f, 0.f, 0.f));
-	v4test(v == Vector4f({0, 0, 0, 0}));
-	float array[] = {0, 0, 0, 0};
-	v4test(v == array);
+	v4test(v == Vec4f(0.f, 0.f, 0.f, 0.f));
+	v4test(v == Vec4f({0, 0, 0, 0}));
+	float float_array[] = {0, 0, 0, 0};
+	v4test(v == float_array);
 
 	v(0) = 1.0f;
 	v[1] += 2.0f;
 	v(2) = 3.0f;
 
 	// Testing attributes modification
-	v4test(v == Vector4f(1.0f, 2.0f, 3.0f, 0.f));
+	v4test(v == Vec4f(1.0f, 2.0f, 3.0f, 0.f));
 
 	v += 2.25f;
 	v -= 1.25f;
@@ -43,7 +80,7 @@ void startVector4TestCase()
 	v /= 1.0f;
 
 	// Testing overloaded operators
-	v4test(v == Vector4f(4.0f, 6.0f, 8.0f, 2.f));
+	v4test(v == Vec4f(4.0f, 6.0f, 8.0f, 2.f));
 
 	v.Set(0.f, 24.7386f, 48.f, 0.f);
 
@@ -52,17 +89,17 @@ void startVector4TestCase()
 	v4test(equals(v.LengthSquared(), 54.0f * 54.0f));
 	v4test(equals(v.Length(), 54.0f));
 
-	Vector4f v2 = v;
+	Vec4f v2 = v;
 
 	// Testing assignment
 	v4test(v == v2);
 
-	v = Vector4f(2, 4, 4, 0.f);
+	v = Vec4f(2, 4, 4, 0.f);
 	v2.Set(v);
 	v2.Normalize();
 
 	// Testing normalization and int casting
-	v4test(v2 == Vector4f(0.333f, 0.666f, 0.666f, 0.f));
+	v4test(v2 == Vec4f(0.333f, 0.666f, 0.666f, 0.f));
 
 	v = (1.f / v2); // This should divide w by 0
 
@@ -71,7 +108,7 @@ void startVector4TestCase()
 	v(3) = 0.f;
 
 	// Testing division
-	v4test(v == Vector4f(3, 1.5, 1.5, 0.f));
+	v4test(v == Vec4f(3, 1.5, 1.5, 0.f));
 
 	// Testing dot product
 	v4test(equals(v.Dot(v2), 3.0f));
@@ -79,16 +116,16 @@ void startVector4TestCase()
 	v = v2 * v;
 
 	// Testing cross product and different template
-	v4test(v == Vector4<gFloat>(0, 1.5, -1.5f, 0.f));
+	v4test(v == Vec4<float>(0, 1.5, -1.5f, 0.f));
 
-	Vector4i i(1, 2, 3, 0);
+	Vec4i i(1, 2, 3, 0);
 
 	v = i;
 
 	//v[8] = 0; v[-1] = 0; // Make sure this crashes
 
 	// Testing Vector casting with different type
-	v4test(v == Vector4f(1, 2, 3, 0.f));
+	v4test(v == Vec4f(1, 2, 3, 0.f));
 }
 
 void startMathTestCase()
@@ -127,20 +164,20 @@ void startMathTestCase()
 
 	// Sin
 	mathtest(equals(sin(0.f), 0.f, 0.01f));
-	mathtest(equals(sin(PI), 0.f, 0.01f));
-	mathtest(equals(sin(HALF_PI), 1.f, 0.01f));
+	mathtest(equals(sin(_PI), 0.f, 0.01f));
+	mathtest(equals(sin(_PI2), 1.f, 0.01f));
 	mathtest(equals(sin(12.f), -0.536572918f, 0.01f));
 
 	// Cos
 	mathtest(equals(cos(0.f), 1.f, 0.01f));
-	mathtest(equals(cos(PI), -1.f, 0.01f));
-	mathtest(equals(cos(HALF_PI), 0.f, 0.01f));
+	mathtest(equals(cos(_PI), -1.f, 0.01f));
+	mathtest(equals(cos(_PI2), 0.f, 0.01f));
 	mathtest(equals(cos(12.f), 0.843f, 0.01f));
 
 	// Atan2
-	mathtest(equals(atan2(1.f, 0.f), HALF_PI));
+	mathtest(equals(atan2(1.f, 0.f), _PI2));
 	mathtest(equals(atan2(0.f, 1.f), 0.f));
-	mathtest(equals(atan2(0.f, 0.f), HALF_PI));
+	mathtest(equals(atan2(0.f, 0.f), _PI2));
 
 	// Max
 	mathtest(max(0, 1) == 1);
@@ -169,7 +206,7 @@ void startMathTestCase()
 	// Is infinite
 	mathtest(!isInfinite(0));
 	mathtest(!isInfinite(1));
-	
+
 	//mathtest(isInfinite(1 / 0.f)); // Doesn't compile on visual
 
 	// Sqrt
@@ -222,30 +259,34 @@ void startMatrixTestCase()
 	MAT_ARRAY_2D array2D =
 	{
 		{
-			{1, 0, 0, 0},
-			{0, 1, 0, 0},
-			{1 / 5.f, 0, 1, 0},
-			{0, 0, 0, 1},
+			{{1, 0, 0, 0}},
+			{{0, 1, 0, 0}},
+			{{1 / 5.f, 0, 1, 0}},
+			{{0, 0, 0, 1}},
 		}
 	};
 
 	MAT_ARRAY array1D =
 	{
-		1, 0, 1 / 5.f, 0,
-		0, 1, 0, 0,
-		0, 0, 1, 0,
-		0, 0, 0, 1
+		{
+			1, 0, 1 / 5.f, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1
+		}
 	};
 
 	MAT_ARRAY array1DMUL =
 	{
-		1, 0, 2, 0,
-		0, 3, 0, 4,
-		0, 0, 5, 0,
-		6, 0, 0, 7
+		{
+			1, 0, 2, 0,
+			0, 3, 0, 4,
+			0, 0, 5, 0,
+			6, 0, 0, 7
+		}
 	};
 
-	Matrix4f m;
+	Mat4 m;
 	m.m02 = 0.2001f;
 
 	matrixtest(m[0] == array2D[0]);
@@ -261,13 +302,13 @@ void startMatrixTestCase()
 
 	m = array1DMUL;
 
-	Vector4f v = m.Mul(Vector4f(2, 5, 1, 8));
-	matrixtest(v == Vector4f(4, 47, 5, 68));
+	Vec4f v = m.Mul(Vec4f(2, 5, 1, 8));
+	matrixtest(v == Vec4f(4, 47, 5, 68));
 
 	m.SetIdentity();
 	v = (m * v);
 
-	matrixtest(v == Vector4f(4, 47, 5, 68));
+	matrixtest(v == Vec4f(4, 47, 5, 68));
 }
 
 GEndNameSpace()

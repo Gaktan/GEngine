@@ -7,8 +7,8 @@ typedef std::ostringstream		__GSTRINGSTREAM;
 // for std::stew(int)
 #include <iomanip>
 
-gString stringFormat(const gString str, /* args */ ...);
-void logOutput(const gString str, /* args */ ...);
+string stringFormat(const string str, /* args */ ...);
+void logOutput(const string str, /* args */ ...);
 
 GBeginNameSpace()
 
@@ -16,32 +16,32 @@ struct ENDL_STRUCT
 {
 };
 
-class gStringStream
+class stringStream
 {
 public:
 
-	gStringStream();
-	virtual ~gStringStream();
+	stringStream();
+	virtual ~stringStream();
 
-	gStringStream& flush();
-	gString str();
+	stringStream& flush();
+	string str();
 
 	__GSTRINGSTREAM& getStream();
 
-	gStringStream& operator << (const ENDL_STRUCT &m);
+	stringStream& operator << (const ENDL_STRUCT &m);
 
-	//gStringStream& operator << (const gDouble t);
-	//gStringStream& operator << (const gUInt t);
-	//gStringStream& operator << (const gInt t);
-	//gStringStream& operator << (const gChar t);
-	//gStringStream& operator << (const gLong t);
-	gStringStream& operator << (const gString t);
-	//gStringStream& operator << (const gIndex t);
-	//gStringStream& operator << (const gBool t);
-	gStringStream& operator << (const gFloat t);
-	gStringStream& operator << (const gChar *t);
-	gStringStream& operator << (const gVector<gByte> &t);
-	gStringStream& operator << (std::_Setw t);
+	//stringStream& operator << (const double t);
+	//stringStream& operator << (const gUInt t);
+	//stringStream& operator << (const gInt t);
+	//stringStream& operator << (const gChar t);
+	//stringStream& operator << (const gLong t);
+	stringStream& operator << (const string t);
+	//stringStream& operator << (const gIndex t);
+	//stringStream& operator << (const gBool t);
+	stringStream& operator << (const float t);
+	stringStream& operator << (const char *t);
+	stringStream& operator << (const vector<byte> &t);
+	stringStream& operator << (std::_Setw t);
 
 private:
 	__GSTRINGSTREAM stream;
@@ -49,7 +49,7 @@ private:
 };
 
 
-static gStringStream cout;
+static stringStream cout;
 static ENDL_STRUCT endl;
 
 GEndNameSpace()

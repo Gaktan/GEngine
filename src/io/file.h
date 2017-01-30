@@ -3,9 +3,9 @@
 
 GBeginNameSpace()
 
-gUInt file_size(const gString &path);
+ui32 file_size(const string &path);
 
-void file_read(const gString& path, const gUInt size, gVector<gByte> &array);
+void file_read(const string& path, const ui32 size, vector<byte> &byte_array);
 
 GEndNameSpace()
 

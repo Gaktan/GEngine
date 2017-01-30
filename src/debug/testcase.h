@@ -11,10 +11,10 @@ GBeginNameSpace()
 class TestCase
 {
 public:
-	gBool failed;
-	gString name;
+	bool failed;
+	string name;
 
-	TestCase(const gString &Name)
+	TestCase(const string &Name)
 	{
 		name = Name;
 		failed = false;
@@ -33,7 +33,7 @@ public:
 		}
 	}
 
-	inline void a(gBool condition, gString conditionText)
+	inline void a(bool condition, string conditionText)
 	{
 		if (!condition)
 		{
@@ -43,6 +43,7 @@ public:
 	}
 };
 
+void startPrimitiveTestCase();
 void startMathTestCase();
 void startVector4TestCase();
 void startMatrixTestCase();

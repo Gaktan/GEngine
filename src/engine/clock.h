@@ -20,35 +20,33 @@ GBeginNameSpace()
 class ClockBase
 {
 public:
-	gLong DeltaMs(const ClockBase& other) const
+	ui32 DeltaMs(const ClockBase& other) const
 	{
 		return Diff(other, 1000, 1000);
 	}
 
-	gLong DeltaMicro(const ClockBase& other) const
+	ui32 DeltaMicro(const ClockBase& other) const
 	{
 		return Diff(other, 1000000, 1000);
 	}
 
-	static gLong DeltaMs(const ClockBase& start, const ClockBase& end)
+	static ui32 DeltaMs(const ClockBase& start, const ClockBase& end)
 	{
 		return start.DeltaMs(end);
 	}
 
-	static gLong DeltaMicro(const ClockBase& start, const ClockBase& end)
+	static ui32 DeltaMicro(const ClockBase& start, const ClockBase& end)
 	{
 		return start.DeltaMicro(end);
 	}
 
-	static void Sleep(const gLong ms);
+	static void Sleep(const ui32 ms);
 
 private:
-	virtual gLong Diff(const ClockBase& other, const gLong mul, const gLong div) const = 0;
+	virtual ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const = 0;
 };
 
-// TODO: Clock HARDCODED FOR WINDOW
-#if 1
-//#if defined(WINDOWS)
+#if defined(_WIN32_)
 class ClockWindows : public ClockBase
 {
 public:
@@ -57,18 +55,18 @@ public:
 		QueryPerformanceCounter(&data);
 	};
 
-	static void Sleep(const gLong ms)
+	static void Sleep(const ui32 ms)
 	{
 		::Sleep(ms);
 	}
 
 protected:
-	gLong Diff(const ClockBase& other, const gLong mul, const gLong div) const
+	ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const
 	{
 		return Diff((ClockWindows&) other, mul, div);
 	}
 
-	gLong Diff(const ClockWindows& other, const gLong mul, const gLong div) const
+	ui32 Diff(const ClockWindows& other, const ui32 mul, const ui32 div) const
 	{
 		LARGE_INTEGER frequency, elapsed;
 
@@ -97,19 +95,19 @@ public:
 		clock_gettime(CLOCK_MONOTONIC, &data);
 	}
 
-	static void Sleep(const gLong ms)
+	static void Sleep(const ui32 ms)
 	{
 		// usleep takes sleep time in micro seconds
 		usleep(sleepMs * 1000);
 	}
 
 private:
-		gLong Diff(const ClockBase& other, const gLong mul, const gLong div) const
+		ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const
 	{
 		return Diff((ClockUnix&) other, mul, div);
 	}
 
-	gLong Diff(const ClockUnix& other, const gLong mul, const gLong div) const
+	ui32 Diff(const ClockUnix& other, const ui32 mul, const ui32 div) const
 	{
 		return ((other.data.tv_sec * mul) + (other.data.tv_nsec / div)) -
 		((data.tv_sec * mul) + (data.tv_nsec / div));

@@ -17,13 +17,13 @@ EAngle::EAngle(const EAngle &other)
 	roll = other.roll;
 }
 
-EAngle::EAngle(const Vector4f &v)
+EAngle::EAngle(const Vec4f &v)
 {
 	LookAt(v);
 	roll = 0.0f;
 }
 
-EAngle::EAngle(const gFloat p, const gFloat y, const gFloat r)
+EAngle::EAngle(const float p, const float y, const float r)
 {
 	pitch = p;
 	yaw = y;
@@ -49,11 +49,11 @@ void EAngle::Normalize()
 		yaw -= 360.f;
 }
 
-void EAngle::LookAt(const Vector4f &direction)
+void EAngle::LookAt(const Vec4f &direction)
 {
-	gFloat x = direction[0];
-	gFloat y = direction[1];
-	gFloat z = direction[2];
+	float x = direction[0];
+	float y = direction[1];
+	float z = direction[2];
 
 	float r = sqrt(x * x + z * z);
 	float yaw = atan2(z, x);
@@ -63,24 +63,24 @@ void EAngle::LookAt(const Vector4f &direction)
 	this->pitch = toDegrees(pitch);
 }
 
-Vector4f EAngle::ToVector()
+Vec4f EAngle::ToVector()
 {
-	Vector4f result;
+	Vec4f result;
 
-	gFloat y = toRadians(yaw);
-	gFloat p = toRadians(pitch);
+	float y = toRadians(yaw);
+	float p = toRadians(pitch);
 
-	gFloat cosP = cos(p);
-	gFloat X = cos(y) * cosP;
-	gFloat Y = sin(p);
-	gFloat Z = sin(y) * cosP;
+	float cosP = cos(p);
+	float X = cos(y) * cosP;
+	float Y = sin(p);
+	float Z = sin(y) * cosP;
 
 	result.Set(X, Y, Z, 0.f);
 
 	return result;
 }
 
-gStringStream& operator << (gStringStream& stream, const EAngle &m)
+stringStream& operator << (stringStream& stream, const EAngle &m)
 {
 	stream << "EAngle [p:" << m.GetPitch() << ", y:" << m.GetYaw() << ", r:" << m.GetRoll() << "]";
 	return stream;

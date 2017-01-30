@@ -10,7 +10,7 @@ GBeginNameSpace()
 #include "debug/log.h"
 #include "debug/debugbreak.h"
 
-inline void _assert(const gString expression, const gString file, int line, gBool doBreak)
+inline void _assert(const string expression, const string file, ui16 line, bool doBreak)
 {
 	cout << "Assertion '" << expression << "' failed, file '" << file << "' line '" /*<< line*/ << "'." << endl;
 
@@ -18,7 +18,7 @@ inline void _assert(const gString expression, const gString file, int line, gBoo
 		debug_break();
 }
 
-inline void _assert(const gString expression, gBool doBreak)
+inline void _assert(const string expression, bool doBreak)
 {
 	cout << "Assertion '" << expression << "' failed." << endl;
 
@@ -26,7 +26,7 @@ inline void _assert(const gString expression, gBool doBreak)
 		debug_break();
 }
 
-inline void _assert_with_message(const gString expression, const gString text, gBool doBreak)
+inline void _assert_with_message(const string expression, const string text, bool doBreak)
 {
 	cout << "Assertion '" << expression << "' failed with error '" << text << "'." << endl;
 

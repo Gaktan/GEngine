@@ -10,31 +10,31 @@ class EAngle
 public:
 	EAngle();
 	EAngle(const EAngle &other);
-	EAngle(const Vector4f &v);
-	EAngle(const gFloat p, const gFloat y, const gFloat r);
+	EAngle(const Vec4f &v);
+	EAngle(const float p, const float y, const float r);
 	virtual ~EAngle();
 
 	void Normalize();
-	void LookAt(const Vector4f &direction);
+	void LookAt(const Vec4f &direction);
 
-	Vector4f ToVector();
+	Vec4f ToVector();
 
-	inline gFloat GetPitch() const { return pitch; }
-	inline void SetPitch(const gFloat value) { pitch = value; }
+	inline float GetPitch() const { return pitch; }
+	inline void SetPitch(const float value) { pitch = value; }
 
-	inline gFloat GetYaw() const { return yaw; }
-	inline void SetYaw(const gFloat value) { yaw = value; }
+	inline float GetYaw() const { return yaw; }
+	inline void SetYaw(const float value) { yaw = value; }
 
-	inline gFloat GetRoll() const { return roll; }
-	inline void SetRoll(const gFloat value) { roll = value; }
+	inline float GetRoll() const { return roll; }
+	inline void SetRoll(const float value) { roll = value; }
 
 protected:
-	gFloat pitch;
-	gFloat yaw;
-	gFloat roll;
+	float pitch;
+	float yaw;
+	float roll;
 };
 
-gStringStream& operator << (gStringStream& stream, const EAngle &m);
+stringStream& operator << (stringStream& stream, const EAngle &m);
 
 GEndNameSpace()
 

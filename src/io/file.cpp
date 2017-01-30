@@ -7,7 +7,7 @@
 
 GBeginNameSpace()
 
-gUInt file_size(const gString &path)
+ui32 file_size(const string &path)
 {
 	std::ifstream file(path.c_str(), std::ios::binary);
 
@@ -23,14 +23,14 @@ gUInt file_size(const gString &path)
 	return end - begin;
 }
 
-void file_read(const gString& path, const gUInt size, gVector<gByte> &array)
+void file_read(const string& path, const ui32 size, vector<byte> &byte_array)
 {
 	std::ifstream  file(path.c_str(), std::ios::binary);
 
 	assertWithMessage(file.is_open(), stringFormat("ERROR! Trying to open inexistent file '%s'.", path.c_str()));
 
 	file.seekg(0, std::ios::beg);
-	file.read((char*)&array[0], size);
+	file.read((char*)&byte_array[0], size);
 
 	file.close();
 }
