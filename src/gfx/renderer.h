@@ -4,7 +4,7 @@
 GBeginNameSpace()
 
 // Creates the window
-ui32 rendererInit();
+void rendererInit();
 void rendererDrawFrame();
 void rendererEnd();
 
