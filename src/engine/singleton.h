@@ -14,6 +14,7 @@ protected:
 	void operator = (const S&) = delete;
 
 public:
+
 	static S& GetInstance()
 	{
 		static S instance;

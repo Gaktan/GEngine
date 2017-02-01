@@ -18,15 +18,21 @@
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_DEBUG_" />
 					<Add option="-D_GCC_" />
+					<Add option="-D_WIN32_" />
+					<Add option="-D_OPENGL_" />
 					<Add directory="src/" />
 					<Add directory="src/math" />
-					<Add directory="libs/glfw/include" />
 					<Add directory="libs/soil/src" />
+					<Add directory="libs/glfw-3.2.1/include" />
 				</Compiler>
 				<Linker>
-					<Add library="libs/soil/lib/libSOIL.a" />
-					<Add library="libopengl32.a" />
+					<Add library="soil" />
+					<Add library="glfw3" />
+					<Add library="opengl32" />
+					<Add library="gdi32" />
 					<Add directory="$(MinGWdir)/lib/" />
+					<Add directory="libs/soil/lib" />
+					<Add directory="libs/glfw-3.2.1/lib-mingw" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -39,16 +45,22 @@
 					<Add option='-include &quot;precomp.h&quot;' />
 					<Add option="-D_RELEASE_" />
 					<Add option="-D_GCC_" />
+					<Add option="-D_WIN32_" />
+					<Add option="-D_OPENGL_" />
 					<Add directory="src/" />
 					<Add directory="src/math" />
-					<Add directory="libs/glfw/include" />
 					<Add directory="libs/soil/src" />
+					<Add directory="libs/glfw-3.2.1/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="libs/soil/lib/libSOIL.a" />
-					<Add library="libopengl32.a" />
+					<Add library="soil" />
+					<Add library="glfw3" />
+					<Add library="opengl32" />
+					<Add library="gdi32" />
 					<Add directory="$(MinGWdir)/lib/" />
+					<Add directory="libs/soil/lib" />
+					<Add directory="libs/glfw-3.2.1/lib-mingw" />
 				</Linker>
 			</Target>
 		</Build>
@@ -68,6 +80,16 @@
 		<Unit filename="src/engine/mainloop.cpp" />
 		<Unit filename="src/engine/mainloop.h" />
 		<Unit filename="src/engine/singleton.h" />
+		<Unit filename="src/gfx/gfxcontext.cpp" />
+		<Unit filename="src/gfx/gfxcontext.h" />
+		<Unit filename="src/gfx/mainwindow.cpp" />
+		<Unit filename="src/gfx/mainwindow.h" />
+		<Unit filename="src/gfx/opengl/mainwindowopengl.cpp" />
+		<Unit filename="src/gfx/opengl/mainwindowopengl.h" />
+		<Unit filename="src/gfx/opengl/ogltexture.cpp" />
+		<Unit filename="src/gfx/opengl/ogltexture.h" />
+		<Unit filename="src/gfx/renderer.cpp" />
+		<Unit filename="src/gfx/renderer.h" />
 		<Unit filename="src/gfx/texture.cpp" />
 		<Unit filename="src/gfx/texture.h" />
 		<Unit filename="src/io/file.cpp">
@@ -78,13 +100,11 @@
 		</Unit>
 		<Unit filename="src/math/eangle.cpp" />
 		<Unit filename="src/math/eangle.h" />
+		<Unit filename="src/math/mat4.cpp" />
+		<Unit filename="src/math/mat4.h" />
 		<Unit filename="src/math/mathutil.cpp" />
 		<Unit filename="src/math/mathutil.h" />
-		<Unit filename="src/math/matrix4f.cpp" />
-		<Unit filename="src/math/matrix4f.h" />
 		<Unit filename="src/math/vector4.h" />
-		<Unit filename="src/opengl/ogltexture.cpp" />
-		<Unit filename="src/opengl/ogltexture.h" />
 		<Unit filename="src/precomp.cpp" />
 		<Unit filename="src/precomp.h">
 			<Option compile="1" />

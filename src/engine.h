@@ -27,7 +27,7 @@ typedef std::string				string;
 #define vector					 std::vector
 
 #else
-#error Not implemented yet defined
+#error Not yet implemented
 #endif
 
 // Namespace used for the engine

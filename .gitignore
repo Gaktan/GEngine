@@ -19,8 +19,8 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
+#*.a
+#*.lib
 
 # Executables
 *.exe
@@ -89,5 +89,4 @@ ipch/
 *.depend
 *.layout
 
-# GLFW documentation
-libs/glfw/docs/
+bin/

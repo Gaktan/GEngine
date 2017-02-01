@@ -1,6 +1,6 @@
 #include "precomp.h"
 
-#include "opengl/ogltexture.h"
+#include "gfx/opengl/ogltexture.h"
 
 #include <GL/gl.h>
 
@@ -23,13 +23,13 @@ OglTexture::~OglTexture()
 	//SOIL_free_image_data(m_Id);
 }
 
-void OglTexture::LoadFile(const gString &path)
+void OglTexture::LoadFile(const string &path)
 {
-	gByte* ret = SOIL_load_image
+	byte* ret = SOIL_load_image
 	(
 		path.c_str(),
-		&m_Width,
-		&m_Height,
+		(int*) &m_Width,
+		(int*) &m_Height,
 		0,
 		SOIL_LOAD_RGB
 	);
@@ -46,7 +46,7 @@ void OglTexture::LoadFile(const gString &path)
 	GLuint texture_id;
 	glGenTextures(1, &texture_id);
 
-	m_Id = (gUInt) texture_id;
+	m_Id = (ui32) texture_id;
 }
 
 GEndNameSpace()

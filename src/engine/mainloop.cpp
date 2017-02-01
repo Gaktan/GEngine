@@ -5,13 +5,26 @@
 #include "engine/clock.h"
 #include "math/mathutil.h"
 #include "gfx/renderer.h"
-
+#if defined (_OPENGL_)
+#include "gfx/opengl/mainwindowopengl.h"
+#endif
 
 GBeginNameSpace()
 
 void MainLoop::BeforeLoop()
 {
 	cout << "Begin Loop" << endl;
+
+#if defined (_OPENGL_)
+	MainWindowAbstract::SetInstance(new MainWindowOpenGL());
+#else
+#error Not yet implemented
+#endif
+
+	MainWindowAbstract &mainWindow = MainWindowAbstract::GetInstance();
+	mainWindow.InitWindow(800, 600, false);
+
+
 	rendererInit();
 }
 
@@ -22,9 +35,6 @@ void MainLoop::StartLoop()
 	m_IsRunning = true;
 
 	m_DeltaTime = 33L; // TODO: Hardcoded (33ms). Should put target time instead
-
-	// Temporary to test the main loop
-	ui32 totalTime = 0;
 
 	while (m_IsRunning)
 	{
@@ -42,9 +52,8 @@ void MainLoop::StartLoop()
 		Clock end;
 		m_DeltaTime = start.DeltaMs(end);
 
-		// Temporary to test the main loop
-		totalTime += m_DeltaTime;
-		if (totalTime > 60000)
+		bool shouldClose = MainWindowAbstract::GetInstance().UpdateWindow();
+		if (shouldClose)
 		{
 			break;
 		}
@@ -58,6 +67,9 @@ void MainLoop::StartLoop()
 void MainLoop::AfterLoop()
 {
 	rendererEnd();
+
+	MainWindowAbstract::GetInstance().DestroyWindow();
+
 	cout << "End loop" << endl;
 }
 

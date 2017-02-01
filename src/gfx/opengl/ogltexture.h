@@ -1,5 +1,5 @@
-#ifndef __OPENGL__OGLTEXTURE__H__
-#define __OPENGL__OGLTEXTURE__H__
+#ifndef __GFX__OPENGL__OGLTEXTURE__H__
+#define __GFX__OPENGL__OGLTEXTURE__H__
 
 #include "gfx/texture.h"
 
@@ -12,11 +12,11 @@ public:
 	OglTexture(const OglTexture &other);
 	virtual ~OglTexture();
 
-	virtual void LoadFile(const gString &path);
+	virtual void LoadFile(const string &path);
 };
 
 typedef OglTexture gTexture;
 
 GEndNameSpace()
 
-#endif // __OPENGL__OGLTEXTURE__H__
+#endif // __GFX__OPENGL__OGLTEXTURE__H__

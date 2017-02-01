@@ -15,7 +15,7 @@ int main()
 	startMatrixTestCase();
 #endif
 
-	//MainLoop::GetInstance().StartLoop();
+	MainLoop::GetInstance().StartLoop();
 
 	return 0;
 }

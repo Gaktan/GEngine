@@ -1,6 +1,8 @@
 #ifndef __MATH__Vec4__H__
 #define __MATH__Vec4__H__
 
+#include "math/mathutil.h"
+
 GBeginNameSpace()
 
 
@@ -332,7 +334,7 @@ public:
 		return a = a / b;
 	}
 
-protected:
+public:
 	union
 	{
 		struct

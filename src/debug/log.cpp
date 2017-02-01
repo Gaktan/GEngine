@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <windows.h>
 
+#define vsnprintf _vsnprintf
+
 string stringFormat(const string str, /* args */ ...)
 {
 	char buffer[256];
