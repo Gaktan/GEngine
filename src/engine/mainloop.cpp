@@ -22,19 +22,24 @@ void MainLoop::BeforeLoop()
 #endif
 
 	MainWindowAbstract &mainWindow = MainWindowAbstract::GetInstance();
-	mainWindow.InitWindow(800, 600, false);
+	i32 result = mainWindow.InitWindow(800, 600, false);
 
+	if (result != 0)
+	{
+		m_IsRunning = false;
+	}
 
 	rendererInit();
 }
 
 void MainLoop::StartLoop()
 {
-	BeforeLoop();
-
 	m_IsRunning = true;
 
-	m_DeltaTime = 33L; // TODO: Hardcoded (33ms). Should put target time instead
+	BeforeLoop();
+
+
+	m_DeltaTime = 33.0f; // TODO: Hardcoded (33ms). Should put target time instead
 
 	while (m_IsRunning)
 	{
@@ -42,15 +47,16 @@ void MainLoop::StartLoop()
 
 		// Loop start
 
+		rendererInit();
 		rendererDrawFrame();
-		cout << "previous frame took " << m_DeltaTime << "ms" << endl;
-
-		Clock::Sleep(1000);
+		rendererEnd();
 
 		// Loop end
 
 		Clock end;
 		m_DeltaTime = start.DeltaMs(end);
+
+		// TODO
 
 		bool shouldClose = MainWindowAbstract::GetInstance().UpdateWindow();
 		if (shouldClose)
