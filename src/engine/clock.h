@@ -20,22 +20,22 @@ GBeginNameSpace()
 class ClockBase
 {
 public:
-	ui32 DeltaMs(const ClockBase& other) const
+	float DeltaMs(const ClockBase& other) const
 	{
-		return Diff(other, 1000, 1000);
+		return Diff(other, 1000.0f, 1000.0f);
 	}
 
-	ui32 DeltaMicro(const ClockBase& other) const
+	float DeltaMicro(const ClockBase& other) const
 	{
-		return Diff(other, 1000000, 1000);
+		return Diff(other, 1000000.0f, 1000.0f);
 	}
 
-	static ui32 DeltaMs(const ClockBase& start, const ClockBase& end)
+	static float DeltaMs(const ClockBase& start, const ClockBase& end)
 	{
 		return start.DeltaMs(end);
 	}
 
-	static ui32 DeltaMicro(const ClockBase& start, const ClockBase& end)
+	static float DeltaMicro(const ClockBase& start, const ClockBase& end)
 	{
 		return start.DeltaMicro(end);
 	}
@@ -43,7 +43,7 @@ public:
 	static void Sleep(const ui32 ms);
 
 private:
-	virtual ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const = 0;
+	virtual float Diff(const ClockBase& other, const float mul, const float div) const = 0;
 };
 
 #if defined(_WIN32_)
@@ -61,22 +61,22 @@ public:
 	}
 
 protected:
-	ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const
+	float Diff(const ClockBase& other, const float mul, const float div) const
 	{
 		return Diff((ClockWindows&) other, mul, div);
 	}
 
-	ui32 Diff(const ClockWindows& other, const ui32 mul, const ui32 div) const
+	float Diff(const ClockWindows& other, const float mul, const float div) const
 	{
-		LARGE_INTEGER frequency, elapsed;
+		LARGE_INTEGER frequency;
 
 		QueryPerformanceFrequency(&frequency);
-		elapsed.QuadPart = other.data.QuadPart - data.QuadPart;
+		float elapsedTime = other.data.QuadPart - data.QuadPart;
 
-		elapsed.QuadPart *= mul;
-		elapsed.QuadPart /= frequency.QuadPart;
+		elapsedTime *= (float) mul;
+		elapsedTime /= (float) frequency.QuadPart;
 
-		return elapsed.QuadPart;
+		return elapsedTime;
 	};
 
 private:
@@ -102,12 +102,12 @@ public:
 	}
 
 private:
-		ui32 Diff(const ClockBase& other, const ui32 mul, const ui32 div) const
+		float Diff(const ClockBase& other, const float mul, const float div) const
 	{
 		return Diff((ClockUnix&) other, mul, div);
 	}
 
-	ui32 Diff(const ClockUnix& other, const ui32 mul, const ui32 div) const
+	float Diff(const ClockUnix& other, const float mul, const float div) const
 	{
 		return ((other.data.tv_sec * mul) + (other.data.tv_nsec / div)) -
 		((data.tv_sec * mul) + (data.tv_nsec / div));

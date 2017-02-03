@@ -53,16 +53,16 @@ void MainLoop::StartLoop()
 
 		// Loop end
 
-		Clock end;
-		m_DeltaTime = start.DeltaMs(end);
-
-		// TODO
-
 		bool shouldClose = MainWindowAbstract::GetInstance().UpdateWindow();
 		if (shouldClose)
 		{
 			break;
 		}
+
+		Clock end;
+		m_DeltaTime = start.DeltaMs(end);
+		// So delta time doesn't get too big with big lag spikes
+		m_DeltaTime = clamp(m_DeltaTime, 0.0f, 33.0f);
 	}
 
 	m_IsRunning = false;

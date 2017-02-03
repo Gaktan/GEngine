@@ -19,11 +19,6 @@ public:
 	virtual bool UpdateWindow();
 	virtual void DestroyWindow();
 
-	bool thing()
-{
-	return glfwWindowShouldClose(m_Window);
-}
-
 	enum WindowErrorCodes
 	{
 		WINDOW_NO_ERROR,
@@ -33,6 +28,7 @@ public:
 
 private:
 	GLFWwindow* m_Window;
+	ui32 m_RefreshRate;
 };
 
 GEndNameSpace()
