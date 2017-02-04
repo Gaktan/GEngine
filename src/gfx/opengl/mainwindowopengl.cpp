@@ -1,5 +1,12 @@
 #include "precomp.h"
 
+// Compile GL3W
+extern "C"
+{
+	#include <GL/gl3w.h>
+	#include <../src/gl3w.c>
+}
+
 #include "gfx/opengl/mainwindowopengl.h"
 
 GBeginNameSpace()
@@ -57,6 +64,12 @@ i32 MainWindowOpenGL::InitWindow(const i16 width, const i16 height, const bool f
 
 	// Vsync
 	glfwSwapInterval(1);
+
+	if (gl3wInit())
+	{
+		cout << "failed to initialize OpenGL\n" << endl;
+		return -1;
+	}
 
 	const GLubyte* renderer = glGetString(GL_RENDERER);
 	const GLubyte* version = glGetString(GL_VERSION);

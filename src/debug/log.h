@@ -7,8 +7,8 @@ typedef std::ostringstream		__GSTRINGSTREAM;
 // for std::stew(int)
 #include <iomanip>
 
-string stringFormat(const string str, /* args */ ...);
-void logOutput(const string str, /* args */ ...);
+String stringFormat(const String str, /* args */ ...);
+void logOutput(const String str, /* args */ ...);
 
 GBeginNameSpace()
 
@@ -24,7 +24,7 @@ public:
 	virtual ~stringStream();
 
 	stringStream& flush();
-	string str();
+	String str();
 
 	__GSTRINGSTREAM& getStream();
 
@@ -35,12 +35,12 @@ public:
 	//stringStream& operator << (const gInt t);
 	//stringStream& operator << (const gChar t);
 	//stringStream& operator << (const gLong t);
-	stringStream& operator << (const string t);
+	stringStream& operator << (const String t);
 	//stringStream& operator << (const gIndex t);
 	//stringStream& operator << (const gBool t);
 	stringStream& operator << (const float t);
 	stringStream& operator << (const char *t);
-	stringStream& operator << (const vector<byte> &t);
+	stringStream& operator << (const Vector<byte> &t);
 	stringStream& operator << (std::_Setw t);
 
 private:

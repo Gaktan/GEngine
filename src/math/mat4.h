@@ -3,9 +3,9 @@
 
 #include "math/vector4.h"
 
-#define MAT_ARRAY_2D_X		array<float, 4>
-#define MAT_ARRAY_2D 		array<MAT_ARRAY_2D_X, 4>
-#define MAT_ARRAY 			array<float, 16>
+#define MAT_ARRAY_2D_X		Array<float, 4>
+#define MAT_ARRAY_2D 		Array<MAT_ARRAY_2D_X, 4>
+#define MAT_ARRAY 			Array<float, 16>
 
 GBeginNameSpace()
 

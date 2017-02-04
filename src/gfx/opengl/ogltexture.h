@@ -12,7 +12,7 @@ public:
 	OglTexture(const OglTexture &other);
 	virtual ~OglTexture();
 
-	virtual void LoadFile(const string &path);
+	virtual void LoadFile(const String &path);
 };
 
 typedef OglTexture gTexture;

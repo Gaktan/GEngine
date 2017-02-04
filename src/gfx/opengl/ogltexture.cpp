@@ -23,7 +23,7 @@ OglTexture::~OglTexture()
 	//SOIL_free_image_data(m_Id);
 }
 
-void OglTexture::LoadFile(const string &path)
+void OglTexture::LoadFile(const String &path)
 {
 	byte* ret = SOIL_load_image
 	(

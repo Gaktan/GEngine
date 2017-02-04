@@ -7,10 +7,10 @@
 
 #define vsnprintf _vsnprintf
 
-string stringFormat(const string str, /* args */ ...)
+String stringFormat(const String str, /* args */ ...)
 {
 	char buffer[256];
-	string ret;
+	String ret;
 
 	va_list args;
 	va_start(args, str);
@@ -22,7 +22,7 @@ string stringFormat(const string str, /* args */ ...)
 	return ret;
 }
 
-void logOutput(const string str, /* args */ ...)
+void logOutput(const String str, /* args */ ...)
 {
 	char buffer[256];
 
@@ -59,7 +59,7 @@ stringStream& stringStream::flush()
 	return *this;
 }
 
-string stringStream::str()
+String stringStream::str()
 {
 	return stream.str();
 }
@@ -76,7 +76,7 @@ stringStream& stringStream::operator << (const ENDL_STRUCT &m)
 	return *this;
 }
 
-stringStream& stringStream::operator << (const string t)
+stringStream& stringStream::operator << (const String t)
 {
 	stream << t;
 	return *this;
@@ -100,10 +100,10 @@ stringStream& stringStream::operator << (const char *t)
 	return *this;
 }
 
-stringStream& stringStream::operator << (const vector<byte> &t)
+stringStream& stringStream::operator << (const Vector<byte> &t)
 {
-	vector<byte>::const_iterator begin = t.begin();
-	vector<byte>::const_iterator end = t.end();
+	Vector<byte>::const_iterator begin = t.begin();
+	Vector<byte>::const_iterator end = t.end();
 
 	stream << "vector [";
 	for (; begin != end; begin++)

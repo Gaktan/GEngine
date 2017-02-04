@@ -18,13 +18,14 @@ typedef intptr_t				iptr;
 typedef ui8						byte;
 
 #include <string>
-typedef std::string				string;
+typedef std::string				String;
 
 #include <array>
-#define array					std::array
+template <class C, std::size_t S> // better than int
+using Array = std::array<C, S>;
 
 #include <vector>
-#define vector					 std::vector
+#define Vector					 std::vector
 
 #else
 #error Not yet implemented

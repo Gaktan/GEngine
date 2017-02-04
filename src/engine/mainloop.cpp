@@ -47,9 +47,7 @@ void MainLoop::StartLoop()
 
 		// Loop start
 
-		rendererInit();
 		rendererDrawFrame();
-		rendererEnd();
 
 		// Loop end
 

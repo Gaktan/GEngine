@@ -35,7 +35,7 @@ public:
 	TextureBase(const TextureBase &other);
 	virtual ~TextureBase();
 
-	virtual void LoadFile(const string &path) = 0;
+	virtual void LoadFile(const String &path) = 0;
 
 	// Getters & Setters
 
@@ -74,10 +74,10 @@ protected:
 
 #ifdef _DEBUG_
 public:
-	inline string GetName() const { return m_Name; }
-	inline void SetName(string name) { m_Name = name; }
+	inline String GetName() const { return m_Name; }
+	inline void SetName(String name) { m_Name = name; }
 protected:
-	string m_Name;
+	String m_Name;
 #endif
 };
 

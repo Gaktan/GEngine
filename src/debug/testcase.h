@@ -12,9 +12,9 @@ class TestCase
 {
 public:
 	bool failed;
-	string name;
+	String name;
 
-	TestCase(const string &Name)
+	TestCase(const String &Name)
 	{
 		name = Name;
 		failed = false;
@@ -33,7 +33,7 @@ public:
 		}
 	}
 
-	inline void a(bool condition, string conditionText)
+	inline void a(bool condition, String conditionText)
 	{
 		if (!condition)
 		{

@@ -7,7 +7,7 @@
 
 GBeginNameSpace()
 
-ui32 file_size(const string &path)
+ui32 file_size(const String &path)
 {
 	std::ifstream file(path.c_str(), std::ios::binary);
 
@@ -23,7 +23,7 @@ ui32 file_size(const string &path)
 	return end - begin;
 }
 
-void file_read(const string& path, const ui32 size, vector<byte> &byte_array)
+void file_read(const String& path, const ui32 size, Vector<byte> &byte_array)
 {
 	std::ifstream  file(path.c_str(), std::ios::binary);
 
