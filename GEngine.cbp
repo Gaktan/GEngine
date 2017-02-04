@@ -24,6 +24,8 @@
 					<Add directory="src/math" />
 					<Add directory="libs/soil/src" />
 					<Add directory="libs/glfw-3.2.1/include" />
+					<Add directory="src/gfx/opengl" />
+					<Add directory="libs/gl3w/include" />
 				</Compiler>
 				<Linker>
 					<Add library="soil" />
@@ -51,6 +53,8 @@
 					<Add directory="src/math" />
 					<Add directory="libs/soil/src" />
 					<Add directory="libs/glfw-3.2.1/include" />
+					<Add directory="src/gfx/opengl" />
+					<Add directory="libs/gl3w" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -86,6 +90,8 @@
 		<Unit filename="src/gfx/mainwindow.h" />
 		<Unit filename="src/gfx/opengl/mainwindowopengl.cpp" />
 		<Unit filename="src/gfx/opengl/mainwindowopengl.h" />
+		<Unit filename="src/gfx/opengl/mesh.cpp" />
+		<Unit filename="src/gfx/opengl/mesh.h" />
 		<Unit filename="src/gfx/opengl/ogltexture.cpp" />
 		<Unit filename="src/gfx/opengl/ogltexture.h" />
 		<Unit filename="src/gfx/renderer.cpp" />
